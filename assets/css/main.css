@@ -2096,11 +2096,17 @@ input, select, textarea {
 		border: 0;
 		display: inline-block;
 		position: relative;
+		
 	}
 
-		.image img {
-			border-radius: 3px;
-			display: block;
+		.image img, .image iframe {
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			width: 100%;
+			height: 100%;
 		}
 
 		.image.left {
@@ -2119,7 +2125,7 @@ input, select, textarea {
 			max-width: 40%;
 		}
 
-			.image.left img, .image.right img {
+			.image.left img, .image.right img, .image.left iframe, .image.right iframe {
 				width: 100%;
 			}
 
@@ -2563,27 +2569,27 @@ input, select, textarea {
 		}
 
 			.features li:nth-child(1) {
-				background-color: rgba(0, 0, 0, 0.035);
-			}
-
-			.features li:nth-child(2) {
 				background-color: rgba(0, 0, 0, 0.07);
 			}
 
-			.features li:nth-child(3) {
+			.features li:nth-child(2) {
 				background-color: rgba(0, 0, 0, 0.105);
 			}
 
-			.features li:nth-child(4) {
+			.features li:nth-child(3) {
 				background-color: rgba(0, 0, 0, 0.14);
 			}
 
-			.features li:nth-child(5) {
+			.features li:nth-child(4) {
 				background-color: rgba(0, 0, 0, 0.175);
 			}
 
-			.features li:nth-child(6) {
+			.features li:nth-child(5) {
 				background-color: rgba(0, 0, 0, 0.21);
+			}
+
+			.features li:nth-child(6) {
+				background-color: rgba(0, 0, 0, 0.245);
 			}
 
 			.features li:nth-child(7) {
@@ -2668,6 +2674,7 @@ input, select, textarea {
 		display: -webkit-flex;
 		display: -ms-flex;
 		display: flex;
+		
 	}
 
 		.spotlight .image {
@@ -2677,9 +2684,11 @@ input, select, textarea {
 			order: 1;
 			border-radius: 0;
 			width: 40%;
+			overflow: hidden;
+			padding-top: 25%;
 		}
 
-			.spotlight .image img {
+			.spotlight .image img, .spotlight .image iframe {
 				border-radius: 0;
 				width: 100%;
 			}
@@ -2702,19 +2711,19 @@ input, select, textarea {
 		}
 
 		.spotlight:nth-child(1) {
-			background-color: rgba(0, 0, 0, 0.075);
+			background-color: rgba(0, 0, 0, 0.3);
 		}
 
 		.spotlight:nth-child(2) {
-			background-color: rgba(0, 0, 0, 0.15);
-		}
-
-		.spotlight:nth-child(3) {
 			background-color: rgba(0, 0, 0, 0.225);
 		}
 
-		.spotlight:nth-child(4) {
+		.spotlight:nth-child(3) {
 			background-color: rgba(0, 0, 0, 0.3);
+		}
+
+		.spotlight:nth-child(4) {
+			background-color: rgba(0, 0, 0, 0.375);
 		}
 
 		.spotlight:nth-child(5) {
@@ -2765,6 +2774,7 @@ input, select, textarea {
 
 				.spotlight .image {
 					width: 100%;
+					padding-top: 56.25%;
 				}
 
 				.spotlight .content {
@@ -2777,6 +2787,11 @@ input, select, textarea {
 		}
 
 		@media screen and (max-width: 736px) {
+
+			.spotlight .image {
+				width: 100%;
+				padding-top: 56.25%;
+			}
 
 			.spotlight .content {
 				padding: 3em 2em 1em 2em ;
@@ -3440,11 +3455,11 @@ input, select, textarea {
 /* Header */
 
 	#header {
-		-moz-transition: background-color 0.2s ease;
-		-webkit-transition: background-color 0.2s ease;
-		-ms-transition: background-color 0.2s ease;
-		transition: background-color 0.2s ease;
-		background: #2e3842;
+		-moz-transition: background-color 0.1s ease;
+		-webkit-transition: background-color 0.1s ease;
+		-ms-transition: background-color 0.1s ease;
+		transition: background-color 0.1s ease;
+		background: #000;
 		height: 3em;
 		left: 0;
 		line-height: 3em;
@@ -3455,10 +3470,10 @@ input, select, textarea {
 	}
 
 		#header h1 {
-			-moz-transition: opacity 0.2s ease;
-			-webkit-transition: opacity 0.2s ease;
-			-ms-transition: opacity 0.2s ease;
-			transition: opacity 0.2s ease;
+			-moz-transition: opacity 0.1s ease;
+			-webkit-transition: opacity 0.1s ease;
+			-ms-transition: opacity 0.1s ease;
+			transition: opacity 0.1s ease;
 			height: inherit;
 			left: 1.25em;
 			line-height: inherit;
@@ -3641,10 +3656,10 @@ input, select, textarea {
 			-webkit-transition: -webkit-transform 0.75s ease, opacity 0.75s ease;
 			-ms-transition: -ms-transform 0.75s ease, opacity 0.75s ease;
 			transition: transform 0.75s ease, opacity 0.75s ease;
-			-moz-transition-delay: 3.5s;
-			-webkit-transition-delay: 3.5s;
-			-ms-transition-delay: 3.5s;
-			transition-delay: 3.5s;
+			-moz-transition-delay: 1.5s;
+			-webkit-transition-delay: 1.5s;
+			-ms-transition-delay: 1.5s;
+			transition-delay: 1.5s;
 			-moz-transform: translateY(0);
 			-webkit-transform: translateY(0);
 			-ms-transform: translateY(0);
@@ -3684,14 +3699,11 @@ input, select, textarea {
 
 		#banner:after {
 			pointer-events: none;
-			-moz-transition: opacity 3s ease-in-out;
-			-webkit-transition: opacity 3s ease-in-out;
-			-ms-transition: opacity 3s ease-in-out;
-			transition: opacity 3s ease-in-out;
-			-moz-transition-delay: 1.25s;
-			-webkit-transition-delay: 1.25s;
-			-ms-transition-delay: 1.25s;
-			transition-delay: 1.25s;
+			-moz-transition: opacity 1.5s ease-in-out;
+			-webkit-transition: opacity 1.5s ease-in-out;
+			-ms-transition: opacity 1.5s ease-in-out;
+			transition: opacity 1.5s ease-in-out;
+
 			content: '';
 			background: rgb(39, 18, 58);
 			display: block;
@@ -3707,8 +3719,6 @@ input, select, textarea {
 
 			#banner {
 				padding: 7em 3em 5em 3em ;
-				height: auto;
-				min-height: 0;
 			}
 
 				#banner h2 {
@@ -3720,7 +3730,6 @@ input, select, textarea {
 				}
 
 				#banner .more {
-					display: none;
 				}
 
 		}
@@ -4001,4 +4010,26 @@ input, select, textarea {
 	width: 50%;
 	margin-left: 25%;
 	text-align: center;
+}
+
+@media screen and (max-width: 900px) { 
+	#formulariowrap {
+		width: 90%;
+		margin-left: 5%;
+	}
+
+}
+
+
+.video {
+	position:absolute; 
+	top:0; 
+	left: 0;
+}
+
+.container {
+	padding-bottom:56.25%; 
+	position:relative; 
+	width: 100%;
+	max-height: 100px;
 }
