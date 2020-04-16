@@ -3425,7 +3425,6 @@ input, select, textarea {
 			position: absolute;
 			right: 0;
 			top: 0;
-			vertical-align: middle;
 			width: 7em;
 		}
 
@@ -3729,8 +3728,6 @@ input, select, textarea {
 					display: none;
 				}
 
-				#banner .more {
-				}
 
 		}
 
